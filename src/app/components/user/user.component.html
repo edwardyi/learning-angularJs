@@ -1,0 +1,50 @@
+<h2>我的名字是{{name}}</h2>
+<ul>
+  <li>年紀:{{age}}</li>
+  <li>年紀:{{age}}</li>
+  <li>家住 {{address.city}}  {{address.street}}</li>
+</ul>
+
+<button (click)="onClick()">點我</button>
+<button (click)="toggleEdit()">編輯</button>
+
+<div *ngIf=isToggleEdit>
+  <form>
+    <div>
+      <label>名字</label>
+      <input type="text" [(ngModel)]="name" name="name" />
+    </div>
+    <div>
+      <label>age</label>
+      <input type="number" [(ngModel)]="age" name="age" />
+    </div>
+    <div>
+      <label>街道</label>
+      <input type="text" [(ngModel)]="address.street" name="street" />
+    </div>
+    <div>
+      <label>城市</label>
+      <input type="text" [(ngModel)]="city" name="city" />
+    </div>
+  </form>
+</div>
+
+<form (submit)="addHobby(hobby.value)">
+  <label>添加嗜好</label>
+  <input type="text" #hobby />
+</form>
+<br/>
+<label>嗜好:</label>
+<ul>
+  <li *ngFor="let hobby of hobbies;let i = index">
+    {{i+1}}
+    {{hobby}}
+  </li>
+</ul>
+
+<div *ngFor="let post of posts">
+  <h3>{{post.title}}</h3>
+  <div>
+    {{post.body}}
+  </div>
+</div>
